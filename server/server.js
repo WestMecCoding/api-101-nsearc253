@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-//const cors = require('cors');   
+const cors = require('cors');   
 const app = express();
-//app.use(cors);
+app.use(cors());
 const port = 3000;
 
 app.get('/', (req, res) => { 
@@ -17,6 +17,7 @@ app.get('/csv-data', (req, res) => {
             console.error(err);
             return
         }
+    
         res.type('text/plain');
         res.send(data);
      });
